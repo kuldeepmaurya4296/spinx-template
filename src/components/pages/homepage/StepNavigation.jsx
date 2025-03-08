@@ -53,7 +53,13 @@ export default function StepNavigation() {
   const [activeContainer, setActiveContainer] = useState("discovery")
 
   return (
-    <div className="flex flex-col md:flex-row h-screen overflow-hidden px-4 md:px-20 py-5">
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+
+      className="flex flex-col md:flex-row h-screen overflow-hidden px-4 md:px-20 py-5">
       {containers.map((container) => {
         const isActive = activeContainer === container.id
 
@@ -104,9 +110,8 @@ export default function StepNavigation() {
 
             {/* Vertical title bar */}
             <div
-              className={`absolute inset-0 flex items-center justify-center md:opacity-100 transition-opacity duration-300 ${
-                isActive ? "opacity-0" : "opacity-100"
-              }`}
+              className={`absolute inset-0 flex items-center justify-center md:opacity-100 transition-opacity duration-300 ${isActive ? "opacity-0" : "opacity-100"
+                }`}
             >
               <div className="flex items-center justify-center h-full">
                 <div className="transform md:rotate-270 flex gap-4 items-center whitespace-nowrap">
@@ -118,6 +123,6 @@ export default function StepNavigation() {
           </motion.div>
         )
       })}
-    </div>
+    </motion.div>
   )
 }

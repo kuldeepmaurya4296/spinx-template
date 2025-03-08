@@ -2,8 +2,8 @@ import { Mail, Phone, MapPin, Linkedin, X, Facebook, Youtube,  Globe } from "luc
 
 export default function Footer() {
   return (
-    <footer className="bg-[#16171A] text-white px-6 md:px-20 py-12">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-gray-700 pb-8">
+    <footer className="bg-[#16171A] text-white px-6 md:px-20 py-12 ">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-gray-700 pb-8 border-t pt-6">
         {/* Industries */}
         <div>
           <h3 className="text-sm font-semibold text-gray-400 uppercase mb-4">Industries</h3>

@@ -1,21 +1,29 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const AwardsSection = ({ awardsData }) => {
   return (
     <div className="border-b border-gray-700 py-12 px-6 md:px-20">
       <div className="flex flex-col md:flex-row justify-between items-center gap-10 mx-auto">
         {awardsData.map((award, index) => (
-          <div key={index} className="w-full md:w-1/2">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="w-full md:w-1/2"
+          >
             {/* Logo Image */}
             <div className="border border-yellow-500 p-6 md:p-10 inline-block mb-4 text-xl font-semibold">
-              <Image 
-                src={award.logo} 
-                alt={`${award.title} Logo`} 
-                width={120} 
-                height={50} 
+              <Image
+                src={award.logo}
+                alt={`${award.title} Logo`}
+                width={120}
+                height={50}
                 className="border-b-2 border-cyan-500"
               />
             </div>
@@ -27,7 +35,7 @@ const AwardsSection = ({ awardsData }) => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

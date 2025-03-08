@@ -1,10 +1,14 @@
 "use client";
 
 import Image from "next/image";
-
+import { motion } from "framer-motion";
 export default function ContactUsSection() {
   return (
-    <section className="flex flex-col md:flex-row items-center justify-center min-h-screen px-6 md:px-12">
+    <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut" }}
+    viewport={{ once: true }} className="flex flex-col md:flex-row items-center justify-center min-h-screen px-6 md:px-12">
       {/* Image Section */}
       <div className="w-full md:w-1/2 flex justify-center">
         <Image
@@ -31,6 +35,6 @@ export default function ContactUsSection() {
           CONTACT US
         </button>
       </div>
-    </section>
+    </motion.div>
   );
 }
