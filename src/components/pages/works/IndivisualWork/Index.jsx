@@ -1,18 +1,42 @@
+import Hero from "./Hero";
+import BegaWebsiteRedesign from "./BegaWebsiteRedesign";
+import KeyAchievements from "./KeyAchievements";
+import BackgroundSection from "./Background";
+import BeforeUI from "./Before";
+import Content from "./Content";
+import StyleGuide from "./StyleGuide";
 import Image from "next/image";
+import InfiniteScroll from "./DemoImage";
+import MarqueeText from "./MarqueeText";
+import DemoImage from "./DemoImage";
 
-export default function IndivisualWork(){
+export default function IndivisualWork() {
     return (
         <>
-        <h1>
-        Medical Device Website Redesign Rejuvenates & Transforms Online Brand Image
-        </h1>
-        <Image src={'https://cdn-eahjn.nitrocdn.com/ChEvwayTHZmZJUAdsUNMLXuXZdBprFoQ/assets/images/optimized/rev-239bc41/www.spinxdigital.com/app/uploads/2024/03/Stemwave-Main.webp'}
-        width={500}
-        height={1000}
-        className=""
-        alt="image"
-        />
         
+            <Hero />
+            <BegaWebsiteRedesign />
+            <KeyAchievements />
+            <BackgroundSection />
+            <Content />
+            <BeforeUI />
+            <Content />
+            <StyleGuide />
+            <Content />
+            <div className="py-10">
+                <Image
+                    src={'/demo-site.webp'}
+                    alt="Picture of the author"
+                    width={500}
+                    height={500}
+                    className="mx-auto"
+                />
+            </div>
+            <Content />
+            <DemoImage />
+            <MarqueeText />
+            <Content />
+
         </>
     )
 }
