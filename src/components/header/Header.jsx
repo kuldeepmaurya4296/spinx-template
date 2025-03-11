@@ -61,7 +61,7 @@ export default function Navbar() {
               {item.dropdown && hovered === item.name && (
                 <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="absolute left-0 top-full mt-2 w-48 bg-white text-black shadow-lg rounded-lg p-2">
                   {item.dropdown.map((subItem) => (
-                    <Link key={subItem.title} href={subItem.link} className="block px-4 py-2 hover:bg-gray-200 rounded">{subItem.title}</Link>
+                    <Link key={subItem.title} href={`${subItem.link}`} className="block px-4 py-2 hover:bg-gray-200 rounded">{subItem.title}</Link>
                   ))}
                 </motion.div>
               )}

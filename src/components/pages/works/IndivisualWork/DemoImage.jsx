@@ -6,15 +6,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const images = [
-  "/default.webp",
-  "/default.webp",
-  "/default.webp",
-  "/default.webp",
-  "/default.webp",
-];
 
-const DemoImage = () => {
+
+const DemoImage = ({images}) => {
   const controls = useAnimation();
   const [direction, setDirection] = useState(0); // 1 = right, -1 = left, 0 = stop
   const [isMobile, setIsMobile] = useState(false);

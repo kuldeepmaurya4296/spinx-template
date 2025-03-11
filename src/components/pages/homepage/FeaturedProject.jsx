@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function FeaturedProject({ title, description, image, bgColor = '#10141c' }) {
     return (
-        <Link href={'#'}>
+        <Link href={`/work/${title}`}>
             <motion.div 
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
