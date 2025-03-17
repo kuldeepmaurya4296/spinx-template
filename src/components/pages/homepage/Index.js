@@ -131,6 +131,14 @@ export default function HomePage() {
             positionOffset: { x: 50, y: -300 }
         }
     ];
+    const whatWeAre = {
+        heading: "We Are",
+        title: "Creative Designers, Insightful Strategists, and Exceptional Engineers",
+        description: "We are SPINX Digital in Los Angeles and as innovators in creative website design & digital marketing, we build awesome digital masterpieces!",
+        years: 18,
+        projects: 250,
+        awards: 30
+    };
     return (
         <main className="bg-[#16171A] text-white">
             <HeroSection />
@@ -155,7 +163,8 @@ export default function HomePage() {
                     </Link>
                 </div>
             </div>
-            <WeAreSection />
+            <WeAreSection data={whatWeAre} />
+
             <div className="px-4 md:px-20 py-4">
                 <h2 className="text-gray-400 text-lg text-center md:text-left w-full border-b py-4">
                     What makes us one of the top-rated web design companies?

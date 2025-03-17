@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
-export default function WeAreSection() {
+export default function WeAreSection({ data }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
     const [counts, setCounts] = useState({ years: 0, projects: 0, awards: 0 });
@@ -13,23 +13,23 @@ export default function WeAreSection() {
 
         const duration = 1000; // 1 second
         const steps = 60; // 60 frames per second
-        const incrementYears = 18 / steps;
-        const incrementProjects = 250 / steps;
-        const incrementAwards = 30 / steps;
+        const incrementYears = data.years / steps;
+        const incrementProjects = data.projects / steps;
+        const incrementAwards = data.awards / steps;
 
         let frame = 0;
         const interval = setInterval(() => {
             frame++;
             setCounts({
-                years: Math.min(18, Math.floor(frame * incrementYears)),
-                projects: Math.min(250, Math.floor(frame * incrementProjects)),
-                awards: Math.min(30, Math.floor(frame * incrementAwards)),
+                years: Math.min(data.years, Math.floor(frame * incrementYears)),
+                projects: Math.min(data.projects, Math.floor(frame * incrementProjects)),
+                awards: Math.min(data.awards, Math.floor(frame * incrementAwards)),
             });
             if (frame >= steps) clearInterval(interval);
         }, duration / steps);
 
         return () => clearInterval(interval);
-    }, [isInView]);
+    }, [isInView, data]);
 
     return (
         <section ref={ref} className="py-16 px-6 md:px-16">
@@ -48,10 +48,10 @@ export default function WeAreSection() {
                         </span>
                     </h1>
                     <h2 className="text-4xl font-bold mt-4">
-                        Creative Designers, <br /> Insightful Strategists, and <br /> Exceptional Engineers
+                        {data.title}
                     </h2>
                     <p className="text-gray-400 mt-6 text-lg">
-                        We are SPINX Digital in Los Angeles and as innovators in creative website design & digital marketing, we build awesome digital masterpieces!
+                        {data.description}
                     </p>
                 </motion.div>
                 {/* Right Section */}

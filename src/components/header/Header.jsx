@@ -16,7 +16,7 @@ const navItems = [
       { title: 'UI/UX Design', link: '/expertise/ui-ux' }
     ]
   },
-  { name: 'About', href: '/about' },
+  { name: 'About', href: '/about-us' },
   { 
     name: 'Resources', 
     href: '/resources', 
