@@ -41,6 +41,23 @@ export default function Works() {
       position: "CTO, Tech Solutions Inc.",
     },
   ];
+  const insightsData = [
+    {
+      type: "Insight",
+      title: "48 Award-Winning Best Website Designs in 2025",
+      categories: ["UX", "Web Development", "Website Redesign"],
+    },
+    {
+      type: "Insight",
+      title: "25 Web Design Tutorials and Courses for Beginners to Expert Developers in 2024",
+      categories: ["Web Development"],
+    },
+    {
+      type: "Guide",
+      title: "Top Website Design Companies in 2025",
+      categories: ["Website Redesign"],
+    },
+  ];
 
   return (
     <main className="bg-[#16171A] text-white pt-36">
@@ -57,7 +74,12 @@ export default function Works() {
         testimonials={testimonialData}
       />
       <AwardWinningAgency />
-      <LearnSection />
+      <LearnSection
+      title="Learn"
+      data={insightsData}
+      linkTitle="View More Insights"
+      linkHref="/insights"
+    />
     </main>
   )
 }

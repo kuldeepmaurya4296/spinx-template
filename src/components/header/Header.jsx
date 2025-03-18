@@ -7,23 +7,29 @@ import { motion, useAnimation } from 'framer-motion';
 // Navigation Data
 const navItems = [
   { name: 'Work', href: '/work' },
-  { 
-    name: 'Expertise', 
-    href: '/expertise', 
+  {
+    name: 'Expertise',
+    href: '/expertise',
     dropdown: [
       { title: 'Web Development', link: '/expertise/web-dev' },
       { title: 'Mobile Apps', link: '/expertise/mobile-apps' },
       { title: 'UI/UX Design', link: '/expertise/ui-ux' }
     ]
   },
-  { name: 'About', href: '/about-us' },
-  { 
-    name: 'Resources', 
-    href: '/resources', 
+  {
+    name: 'About', href: '/about-us', dropdown: [
+      { title: 'Who  We Are', link: '/about-us' },
+      { title: 'Our Process', link: '/our-process' },
+      { title: 'Careers', link: '/careers' }
+    ]
+  },
+  {
+    name: 'Resources',
+    href: '/resources',
     dropdown: [
-      { title: 'Blog', link: '/resources/blog' },
-      { title: 'Case Studies', link: '/resources/case-studies' },
-      { title: 'Whitepapers', link: '/resources/whitepapers' }
+      { title: 'Insights', link: '/resources/blog' },
+      { title: 'E Book', link: '/resources/case-studies' },
+      { title: 'RFP Templates', link: '/resources/whitepapers' }
     ]
   }
 ];

@@ -139,6 +139,23 @@ export default function HomePage() {
         projects: 250,
         awards: 30
     };
+    const insightsData = [
+        {
+            type: "Insight",
+            title: "48 Award-Winning Best Website Designs in 2025",
+            categories: ["UX", "Web Development", "Website Redesign"],
+        },
+        {
+            type: "Insight",
+            title: "25 Web Design Tutorials and Courses for Beginners to Expert Developers in 2024",
+            categories: ["Web Development"],
+        },
+        {
+            type: "Guide",
+            title: "Top Website Design Companies in 2025",
+            categories: ["Website Redesign"],
+        },
+    ];
     return (
         <main className="bg-[#16171A] text-white">
             <HeroSection />
@@ -194,7 +211,7 @@ export default function HomePage() {
                 <LogoCarousel logos={logos} bgColor="white" direction="right" />
                 <LogoCarousel logos={logos} />
             </div>
-           
+
             <section>
                 <AwardsRecognition />
                 <AwardsSection awardsData={awardsData} />
@@ -217,7 +234,12 @@ export default function HomePage() {
                 description="Take a deep dive into the tales of triumph from our web design agency. Our clients enthusiastically recount their journeys, showcasing how our cutting-edge web design solutions have revolutionized their online platforms."
                 testimonials={testimonialData}
             />
-            <LearnSection />
+            <LearnSection
+                title="Learn"
+                data={insightsData}
+                linkTitle="View More Insights"
+                linkHref="/insights"
+            />
 
             <div className="bg-[#181818] text-white px-4 md:px-20 py-16">
                 <h2 className="text-3xl md:text-5xl font-bold">
