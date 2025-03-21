@@ -4,6 +4,7 @@ import { ChevronDown, ChevronUp, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import CursorFollower from '../common/CursorFollower';
 
 const navItems = [
   { name: 'Work', href: '/work' },
@@ -43,6 +44,7 @@ export default function Navbar() {
   const controls = useAnimation();
   const sizeControls = useAnimation();
   const pathname = usePathname();
+  if(pathname.includes('studio') ){return null}
 
   useEffect(() => {
     const handleScroll = () => setScrolling(window.scrollY > 50);
@@ -61,6 +63,7 @@ export default function Navbar() {
 
   return (
     <motion.nav className="w-full fixed top-0 z-50 text-white" animate={controls}>
+       {pathname.includes('studio')&&<CursorFollower />}
       <div className="py-2 text-sm border-b shadow flex items-center justify-between px-6 md:px-20">
         <Link href="tel:+1234567890" className="hover:text-gray-200">+1 234 567 890</Link>
         <Link href="#" className="hover:text-gray-200">#</Link>
@@ -90,25 +93,25 @@ export default function Navbar() {
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>{isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}</button>
       </motion.div>
       {isOpen && (
-        <div className="md:hidden border-t py-4 px-4 bg-white text-black">
-          {navItems.map((item) => (
-            <div key={item.name} className="py-2">
-              <Link href={item.href} className="block text-gray-700 hover:text-black pb-1" onClick={() => setIsOpen(false)}>{item.name}</Link>
-              {item.dropdown && (
-                <div className="ml-4 mt-2">
-                  {item.dropdown.map((subItem) => (
-                    <div key={subItem.title} className="py-1">
-                      <Link href={subItem.link} className="block text-gray-600 hover:text-black font-medium pb-1" onClick={() => setIsOpen(false)}>{subItem.title}</Link>
-                      <p className="text-xs text-gray-500">{subItem.description}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-          <Link href="/contact" className="block bg-blue-600 text-white px-4 py-2 rounded mt-4 text-center hover:bg-blue-700" onClick={() => setIsOpen(false)}>Let's Talk</Link>
-        </div>
-      )}
+  <div className="md:hidden border-t py-4 px-4 pb-40 bg-white text-black max-h-screen overflow-y-scroll">
+    {navItems.map((item) => (
+      <div key={item.name} className="py-2">
+        <Link href={item.href} className="block text-gray-700 hover:text-black pb-1" onClick={() => setIsOpen(false)}>{item.name}</Link>
+        {item.dropdown && (
+          <div className="ml-4 mt-2">
+            {item.dropdown.map((subItem) => (
+              <div key={subItem.title} className="py-1">
+                <Link href={subItem.link} className="block text-gray-600 hover:text-black font-medium pb-1" onClick={() => setIsOpen(false)}>{subItem.title}</Link>
+                <p className="text-xs text-gray-500">{subItem.description}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+    <Link href="/contact" className="block bg-blue-600 text-white px-4 py-2 rounded mt-4 text-center hover:bg-blue-700" onClick={() => setIsOpen(false)}>Let's Talk</Link>
+  </div>
+)}
     </motion.nav>
   );
 }

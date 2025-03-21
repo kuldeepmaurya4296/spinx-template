@@ -36,7 +36,7 @@ export default function WeAreSection({ data }) {
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center">
                 {/* Left Section */}
                 <motion.div 
-                    initial={{ opacity: 0, x: -50 }}
+                    initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1 }}
                     viewport={{ once: true }}
@@ -56,7 +56,7 @@ export default function WeAreSection({ data }) {
                 </motion.div>
                 {/* Right Section */}
                 <motion.div 
-                    initial={{ opacity: 0, x: 50 }}
+                    initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1 }}
                     viewport={{ once: true }}

@@ -182,7 +182,7 @@ export default function HomePage() {
             </div>
             <WeAreSection data={whatWeAre} />
 
-            <div className="px-4 md:px-20 py-4">
+            <div className="px-4 md:px-20 py-20">
                 <h2 className="text-gray-400 text-lg text-center md:text-left w-full border-b py-4">
                     What makes us one of the top-rated web design companies?
                 </h2>
