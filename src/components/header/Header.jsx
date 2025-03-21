@@ -37,7 +37,7 @@ const navItems = [
   }
 ];
 
-export default function Navbar() {
+export default function Header({navItems}) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const [hovered, setHovered] = useState(null);
@@ -63,7 +63,6 @@ export default function Navbar() {
 
   return (
     <motion.nav className="w-full fixed top-0 z-50 text-white" animate={controls}>
-       {pathname.includes('studio')&&<CursorFollower />}
       <div className="py-2 text-sm border-b shadow flex items-center justify-between px-6 md:px-20">
         <Link href="tel:+1234567890" className="hover:text-gray-200">+1 234 567 890</Link>
         <Link href="#" className="hover:text-gray-200">#</Link>
@@ -71,11 +70,11 @@ export default function Navbar() {
       <motion.div animate={sizeControls} className="container mx-auto flex items-center justify-between px-6 md:px-20">
         <Link href="/" className="font-bold text-3xl md:text-5xl">SPINX</Link>
         <div className="hidden md:flex space-x-16 text-lg relative items-center">
-          {navItems.map((item) => (
+          {navItems?.map((item) => (
             <div key={item.name} className="relative group" onMouseEnter={() => setHovered(item.name)} onMouseLeave={() => setHovered(null)}>
-              <Link href={item.href} className={`relative hover:text-gray-300 transition-all pb-1 flex items-center gap-3 ${pathname === item.href ? 'border-b-2 border-green-500' : ''}`}>
+              <Link href={item.href} className={`relative capitalize hover:text-gray-300 transition-all pb-1 flex items-center gap-3 ${pathname === item.href ? 'border-b-2 border-green-500' : ''}`}>
                 {item.name} {item.dropdown && <span>{hovered ? <ChevronUp size={16} /> : <ChevronDown size={16} />}</span>}
-              </Link>
+              </Link> 
               {item.dropdown && hovered === item.name && (
                 <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="absolute left-0 top-full mt-2 w-60 bg-white text-black shadow-lg rounded-lg p-2">
                   {item.dropdown.map((subItem) => (
@@ -101,8 +100,11 @@ export default function Navbar() {
           <div className="ml-4 mt-2">
             {item.dropdown.map((subItem) => (
               <div key={subItem.title} className="py-1">
-                <Link href={subItem.link} className="block text-gray-600 hover:text-black font-medium pb-1" onClick={() => setIsOpen(false)}>{subItem.title}</Link>
+                <Link href={subItem.link} className="block text-gray-600 hover:text-black font-medium pb-1" onClick={() => setIsOpen(false)}>{subItem.title}
+                
+                
                 <p className="text-xs text-gray-500">{subItem.description}</p>
+                </Link>
               </div>
             ))}
           </div>
