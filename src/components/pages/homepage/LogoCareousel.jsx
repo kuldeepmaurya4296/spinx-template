@@ -23,7 +23,7 @@ export default function LogoCarousel({ logos, bgColor = "[#16171A]", direction =
             className="p-10 w-32 h-32 md:w-60 md:h-60 flex items-center justify-center flex-shrink-0 border border-gray-200"
           >
             <Image
-              src={logo}
+              src={logo?.imageUrl}
               alt="Brand Logo"
               width={160}
               height={80}

@@ -36,7 +36,7 @@ const BeforeUI = ({ images }) => {
               <Image
                 src={img.src} 
                 alt={img.alt || "UI Screenshot"}
-                fill
+                layout="intrinsic"
                 objectFit="cover"
                 className="rounded"
               />
@@ -54,7 +54,7 @@ const BeforeUI = ({ images }) => {
                 <Image
                   src={img.src} 
                   alt={img.alt || "UI Screenshot"}
-                  fill
+                  layout="intrinsic"
                   objectFit="cover"
                   className="rounded"
                 />

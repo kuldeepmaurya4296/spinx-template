@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function FeaturedProject({ title, description, image, bgColor = '#10141c' }) {
+    // console.log("Featured Project:", image);
     return (
         <Link href={`/work/${title}`}>
             <motion.div 

@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const AwardsSection = ({ awardsData }) => {
   return (
     <div className="border-b border-gray-700 py-12 px-6 md:px-20">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-10 mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 justify-between items-center gap-10 mx-auto">
         {awardsData.map((award, index) => (
           <motion.div
             key={index}
@@ -15,7 +15,7 @@ const AwardsSection = ({ awardsData }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="w-full md:w-1/2"
+            className="w-full "
           >
             {/* Logo Image */}
             <div className="border border-yellow-500 p-6 md:p-10 inline-block mb-4 text-xl font-semibold">
