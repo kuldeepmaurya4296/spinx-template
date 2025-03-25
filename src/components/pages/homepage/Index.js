@@ -17,11 +17,13 @@ import LearnSection from "./LearnSection";
 import DiveIn from "./DiveIn";
 import SplitText from "@/components/animation/SplitText";
 import { getAwards, getAwardsRecognition, getAwardsSection, getBrands, getContactData, getDiveInData, getExpertise, getHeroData, getHighlights, getInsights, getLogos, getProcessSteps, getProjectsData, getStepsNavigation, getTestimonials, getWhatWeAre } from "@/utills/homepage";
+import { getAllProjects } from "@/utills/individualWork";
+import { urlFor } from "@/sanity/lib/image";
 
 export default async function HomePage() {
     const heroData = await getHeroData();
-    const awardData=  await getAwards()
-    const projects = await getProjectsData()
+    const awardData = await getAwards()
+    const projects = await getAllProjects()
     const whatWeAre = await getWhatWeAre()
     const highlightData = await getHighlights()
     const brandsData = await getBrands()
@@ -31,7 +33,7 @@ export default async function HomePage() {
     const awardsData = await getAwardsSection()
 
     const processStepsData = await getProcessSteps()
-    const stepsData  = await getStepsNavigation()
+    const stepsData = await getStepsNavigation()
     const contactData = await getContactData()
     const testimonialData = await getTestimonials()
     const insightsData = await getInsights()
@@ -58,15 +60,18 @@ export default async function HomePage() {
                     {/* Featured Projects */}
                     <SplitText text="Featured Projects" />
                 </h1>
-                {projects.map((project, index) => (
+                {projects.slice(0, 3).map((project, index) => (
                     <FeaturedProject
                         key={index}
                         title={project.title}
-                        description={project.description}
-                        image={project.imageUrl}
+                        description={project.subtitle}
+                        image={project.thumbnailImage ? urlFor(project.thumbnailImage).url() : "/default.webp"} // Fallback Image
                         bgColor={index % 2 === 0 ? "#10141c" : "white"}
+                        slug={project.slug.current}
                     />
                 ))}
+
+
                 <div className="flex justify-end">
                     <Link href="/work" className="underline text-lg md:text-2xl text-end px-4 md:px-20">
                         See More Work

@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 
 export default function Content({ data }) {
+  // console.log('data', data)
   return (
     <section className="max-w-3xl mx-auto p-6">
       {/* Dynamic Discovery Label */}

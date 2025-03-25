@@ -14,9 +14,10 @@ import project from "./homepage/project";
 import stepsNavigation from "./homepage/stepsNavigation";
 import testimonial from "./homepage/testimonial";
 import whatweare from "./homepage/whatweare";
+import individualWork from "./individualWork";
 import navbarSchema from "./navbarSchema";
 import postType from "./postType";
 
 export const schema = {
-  types: [postType, navbarSchema, heroSection, awards, project, whatweare, highlightSection, brands, logos, experties, awardsRecognition, awardSection, processSteps, stepsNavigation, contact, testimonial, insights, devine],
+  types: [postType, navbarSchema, heroSection, awards, whatweare, highlightSection, brands, logos, experties, awardsRecognition, awardSection, processSteps, stepsNavigation, contact, testimonial, insights, devine, individualWork],
 }

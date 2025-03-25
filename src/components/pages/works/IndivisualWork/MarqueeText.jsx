@@ -11,7 +11,7 @@ export default function MarqueeText({ text, speed = 10 }) {
         transition={{ ease: "linear", duration: speed, repeat: Infinity }}
       >
         {/* Duplicate content for a seamless loop */}
-        {[...Array(3)].map((_, index) => (
+        {[...Array(5)].map((_, index) => (
           <p key={index} className="text-2xl md:text-4xl font-medium text-gray-800">
             {text}
           </p>

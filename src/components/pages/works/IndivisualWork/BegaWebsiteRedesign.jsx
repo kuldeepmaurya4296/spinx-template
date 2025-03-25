@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 
-const BegaWebsiteRedesign = ({ title, overview, awards }) => {
+const BegaWebsiteRedesign = ({ awards }) => {
+ 
   return (
     <div className="mx-auto px-4 md:px-20 py-10 grid md:grid-cols-3 gap-12">
       
@@ -14,9 +15,9 @@ const BegaWebsiteRedesign = ({ title, overview, awards }) => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h1 className="text-5xl font-bold">{title}</h1>
+        <h1 className="text-5xl font-bold">{awards?.title}</h1>
         <h2 className="text-lg uppercase text-gray-500 mt-2">Overview</h2>
-        <p className="text-gray-700 mt-4 leading-relaxed text-xl">{overview}</p>
+        <p className="text-gray-700 mt-4 leading-relaxed text-xl">{awards?.overview}</p>
       </motion.div>
       
       {/* Right Section - Awards */}
@@ -28,7 +29,7 @@ const BegaWebsiteRedesign = ({ title, overview, awards }) => {
       >
         <h2 className="text-sm uppercase text-gray-500">Awards</h2>
         <ul className="mt-4 space-y-10">
-          {awards.map((award, index) => (
+          {awards?.awardList.map((award, index) => (
             <motion.li 
               key={index}
               initial={{ opacity: 0, y: 100 }}

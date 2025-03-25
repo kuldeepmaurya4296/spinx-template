@@ -3,62 +3,25 @@
 import { useState } from 'react';
 import ProjectCard from "./ProjectCard";
 import { ChevronLeft, ChevronRight } from "lucide-react"; // Import icons
+import { urlFor } from '@/sanity/lib/image';
 
-export default function Projects() {
-  const projectCard = [
-    {
-      image: "/image-intro1.webp",
-      category: "Quinn Emanuel Website Redesign",
-      title: "How to Personify a “Global Force in Business Litigation”",
-    },
-    {
-      image: "/image-intro1.webp",
-      category: "Quinn Emanuel Website Redesign",
-      title: "How to Personify a “Global Force in Business Litigation”",
-    },
-    {
-      image: "/image-intro1.webp",
-      category: "Quinn Emanuel Website Redesign",
-      title: "How to Personify a “Global Force in Business Litigation”",
-    },
-    {
-      image: "/image-intro1.webp",
-      category: "Quinn Emanuel Website Redesign",
-      title: "How to Personify a “Global Force in Business Litigation”",
-    },
-    {
-      image: "/image-intro1.webp",
-      category: "Quinn Emanuel Website Redesign",
-      title: "How to Personify a “Global Force in Business Litigation”",
-    },
-    {
-      image: "/image-intro1.webp",
-      category: "Quinn Emanuel Website Redesign",
-      title: "How to Personify a “Global Force in Business Litigation”",
-    },
-    {
-      image: "/image-intro1.webp",
-      category: "Quinn Emanuel Website Redesign",
-      title: "How to Personify a “Global Force in Business Litigation”",
-    },
-    {
-      image: "/image-intro1.webp",
-      category: "Quinn Emanuel Website Redesign",
-      title: "How to Personify a “Global Force in Business Litigation”",
-    },
-    {
-      image: "/image-intro1.webp",
-      category: "Extra Project",
-      title: "Another Project Example",
-    },
-  ];
+export default function Projects({ projectCard }) {
+  // console.log('image---', projectCard);
+
+  // If there are 3 or fewer projects, return null
+  if (!projectCard || projectCard.length <= 3) {
+    return null;
+  }
+
+  // Skip the first 3 projects
+  const filteredProjects = projectCard.slice(3);
 
   const itemsPerPage = 8;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(projectCard.length / itemsPerPage);
+  const totalPages = Math.ceil(filteredProjects.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentProjects = projectCard.slice(startIndex, startIndex + itemsPerPage);
+  const currentProjects = filteredProjects.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <div className="px-4 md:px-20 py-10">
@@ -67,14 +30,15 @@ export default function Projects() {
         {currentProjects.map((project, index) => (
           <ProjectCard
             key={index}
-            image={project.image}
+            image={project.thumbnailImage ? urlFor(project.thumbnailImage).url() : "/default.webp"} // Fallback Image
             category={project.category}
             title={project.title}
+            slug={project?.slug?.current} // Pass the slug safely
           />
         ))}
       </div>
 
-      {/* Pagination Controls - Left Aligned */}
+      {/* Pagination Controls */}
       <div className="flex items-center mt-8 gap-4">
         {/* Previous Button */}
         <button

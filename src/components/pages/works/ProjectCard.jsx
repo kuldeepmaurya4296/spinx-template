@@ -4,14 +4,15 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const ProjectCard = ({ image, category, title, imageBg = 'gray' }) => {
+const ProjectCard = ({ image, category, title, imageBg = 'gray' , slug}) => {
+  console.log("image:", image);
   return (
     <motion.div
       whileHover="hover" // When hovering, apply the animation to all child elements
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className="bg-[#10141c] p-4 rounded-lg shadow-md w-full mx-auto"
     >
-      <Link href={`/work/${title}`}>
+      <Link href={`/work/${slug}`}>
         
       <motion.div
         variants={{

@@ -4,10 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function FeaturedProject({ title, description, image, bgColor = '#10141c' }) {
+export default function FeaturedProject({ title, description, image, bgColor = '#10141c',slug }) {
     // console.log("Featured Project:", image);
     return (
-        <Link href={`/work/${title}`}>
+        <Link href={`/work/${slug}`}>
             <motion.div 
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}

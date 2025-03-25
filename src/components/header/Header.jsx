@@ -37,14 +37,14 @@ const navItems = [
   }
 ];
 
-export default function Header({navItems}) {
+export default function Header({ navItems }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const [hovered, setHovered] = useState(null);
   const controls = useAnimation();
   const sizeControls = useAnimation();
   const pathname = usePathname();
-  if(pathname.includes('studio') ){return null}
+  if (pathname.includes('studio')) { return null }
 
   useEffect(() => {
     const handleScroll = () => setScrolling(window.scrollY > 50);
@@ -69,12 +69,12 @@ export default function Header({navItems}) {
       </div>
       <motion.div animate={sizeControls} className="container mx-auto flex items-center justify-between px-6 md:px-20">
         <Link href="/" className="font-bold text-3xl md:text-5xl">SPINX</Link>
-        <div className="hidden md:flex space-x-16 text-lg relative items-center">
+        <div className="hidden lg:flex space-x-16 text-lg relative items-center">
           {navItems?.map((item) => (
             <div key={item.name} className="relative group" onMouseEnter={() => setHovered(item.name)} onMouseLeave={() => setHovered(null)}>
               <Link href={item.href} className={`relative capitalize hover:text-gray-300 transition-all pb-1 flex items-center gap-3 ${pathname === item.href ? 'border-b-2 border-green-500' : ''}`}>
                 {item.name} {item.dropdown && <span>{hovered ? <ChevronUp size={16} /> : <ChevronDown size={16} />}</span>}
-              </Link> 
+              </Link>
               {item.dropdown && hovered === item.name && (
                 <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="absolute left-0 top-full mt-2 w-60 bg-white text-black shadow-lg rounded-lg p-2">
                   {item.dropdown.map((subItem) => (
@@ -89,31 +89,31 @@ export default function Header({navItems}) {
           ))}
           <Link href="/contact" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Let's Talk</Link>
         </div>
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>{isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}</button>
+        <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>{isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}</button>
       </motion.div>
       {isOpen && (
-  <div className="md:hidden border-t py-4 px-4 pb-40 bg-white text-black max-h-screen overflow-y-scroll">
-    {navItems.map((item) => (
-      <div key={item.name} className="py-2">
-        <Link href={item.href} className="block text-gray-700 hover:text-black pb-1" onClick={() => setIsOpen(false)}>{item.name}</Link>
-        {item.dropdown && (
-          <div className="ml-4 mt-2">
-            {item.dropdown.map((subItem) => (
-              <div key={subItem.title} className="py-1">
-                <Link href={subItem.link} className="block text-gray-600 hover:text-black font-medium pb-1" onClick={() => setIsOpen(false)}>{subItem.title}
-                
-                
-                <p className="text-xs text-gray-500">{subItem.description}</p>
-                </Link>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    ))}
-    <Link href="/contact" className="block bg-blue-600 text-white px-4 py-2 rounded mt-4 text-center hover:bg-blue-700" onClick={() => setIsOpen(false)}>Let's Talk</Link>
-  </div>
-)}
+        <div className="lg:hidden border-t py-4 px-4 pb-40 bg-white text-black max-h-screen overflow-y-scroll">
+          {navItems.map((item) => (
+            <div key={item.name} className="py-2">
+              <Link href={item.href} className="block text-gray-700 hover:text-black pb-1" onClick={() => setIsOpen(false)}>{item.name}</Link>
+              {item.dropdown && (
+                <div className="ml-4 mt-2">
+                  {item.dropdown.map((subItem) => (
+                    <div key={subItem.title} className="py-1">
+                      <Link href={subItem.link} className="block text-gray-600 hover:text-black font-medium pb-1" onClick={() => setIsOpen(false)}>{subItem.title}
+
+
+                        <p className="text-xs text-gray-500">{subItem.description}</p>
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+          <Link href="/contact" className="block bg-blue-600 text-white px-4 py-2 rounded mt-4 text-center hover:bg-blue-700" onClick={() => setIsOpen(false)}>Let's Talk</Link>
+        </div>
+      )}
     </motion.nav>
   );
 }

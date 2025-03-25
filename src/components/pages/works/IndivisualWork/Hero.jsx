@@ -2,7 +2,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function Hero({ title, imageSrc }) {
+export default function Hero({ title, heroImage }) {
+    console.log("imageSrc:", heroImage);
+
     return (
         <div className="pt-32 bg-[#16171A] text-white">
             <motion.h1 
@@ -21,7 +23,7 @@ export default function Hero({ title, imageSrc }) {
                 transition={{ duration: 0.8 }}
             >
                 <Image
-                    src={imageSrc}
+                    src={heroImage}
                     alt="Hero Image"
                     width={500}
                     height={500}

@@ -1,4 +1,5 @@
 export default function StyleGuide({ colors, typography }) {
+  // console.log("abcd-------------",colors, typography)
   return (
     <div className="px-4 md:px-20 py-10 grid grid-cols-1 md:grid-cols-2 gap-8">
       {/* Color Palette */}

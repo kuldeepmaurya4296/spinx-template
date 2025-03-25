@@ -1,15 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 
-const achievements = [
-  { value: "+672%", label: "Sessions" },
-  { value: "+120%", label: "Pages per session" },
-  { value: "+168%", label: "Avg. session duration" },
-  { value: "-42%", label: "Bounce rate" },
-  { value: "+10,098%", label: "Organic search traffic" },
-];
-
-export default function KeyAchievements() {
+export default function KeyAchievements({achievements}) {
   return (
     <section className="py-10 px-4 md:px-20 bg-white">
       <h2 className="text-gray-600 text-2xl py-10 uppercase tracking-wide mb-4 border-b ">Key Achievements</h2>
