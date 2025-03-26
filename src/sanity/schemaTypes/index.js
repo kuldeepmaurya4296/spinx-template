@@ -1,3 +1,6 @@
+import ceomessage from "./ceomessage";
+import expertiseData from "./experties/expertiseData";
+import expertiseHero from "./experties/expertiseHero";
 import awards from "./homepage/awards";
 import awardSection from "./homepage/awardSection";
 import awardsRecognition from "./homepage/awardsRecognition";
@@ -19,5 +22,5 @@ import navbarSchema from "./navbarSchema";
 import postType from "./postType";
 
 export const schema = {
-  types: [postType, navbarSchema, heroSection, awards, whatweare, highlightSection, brands, logos, experties, awardsRecognition, awardSection, processSteps, stepsNavigation, contact, testimonial, insights, devine, individualWork],
+  types: [postType, navbarSchema, heroSection, awards, whatweare, highlightSection, brands, logos, experties, awardsRecognition, awardSection, processSteps, stepsNavigation, contact, testimonial, insights, devine, individualWork, expertiseHero, expertiseData, ceomessage],
 }

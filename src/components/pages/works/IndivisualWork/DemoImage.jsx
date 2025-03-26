@@ -82,7 +82,7 @@ const DemoImage = ({images}) => {
           {[...images, ...images].map((src, index) => (
             <Image
               key={index}
-              src={urlFor(src).url()}
+              src={src?urlFor(src).url():src}
               alt={`Image ${index}`}
               className="w-full h-full object-cover rounded-lg shadow-lg"
               width={500}

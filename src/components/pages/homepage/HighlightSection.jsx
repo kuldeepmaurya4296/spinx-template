@@ -48,9 +48,9 @@ export default function HighlightSection({ title, description, imageUrl, positio
       )}
 
       {/* Content Section */}
-      <div className="relative z-10 border-b border-gray-400 flex flex-col md:flex-row justify-between md:items-center py-20 pt-6">
-        <h1 className="text-4xl md:text-5xl font-bold">{title}</h1>
-        <p className="text-gray-300 mt-4 max-w-2xl md:pr-60">{description}</p>
+      <div className="relative z-10 border-b border-gray-400 flex flex-col md:flex-row justify-between md:items-start py-20 pt-6">
+        <h1 className="text-4xl md:text-5xl font-bold w-full md:w-2/5">{title}</h1>
+        <p className="mt-4 max-w-2xl md:pr-40 w-full md:w-3/5">{description}</p>
       </div>
     </motion.div>
   );

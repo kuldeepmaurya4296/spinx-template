@@ -3,82 +3,26 @@ import CommonSection from "./CommonSection";
 import HeroSection from "./HeroSection";
 import FeaturedProject from "../homepage/FeaturedProject";
 import Link from "next/link";
+import { getAllProjects } from "@/utills/individualWork";
+import { urlFor } from "@/sanity/lib/image";
+import { getAllExperties, getHeroExperties } from "@/utills/experties";
 
-export default function Expertise() {
-    const pageData = {
-        hero: {
-            label: "Expertise",
-            title: {
-                main: "Thinking Big",
-                secondary: "& Crafting Solutions",
-            },
-            subtitle: "We are fearless about taking on challenges!",
-            description:
-                "With collaboration at our core, we are ready to work with you to craft winning solutions...",
-            bgText: "Exper",
-        },
-        sections: [
-            {
-                title: "Our Expertise",
-                items: [
-                    {
-                        name: "Discovery",
-                        description: "A thorough discovery is at the core of every successful digital solution we craft...",
-                        link: "/discovery",
-                    },
-                    {
-                        name: "Strategy & Planning",
-                        description: "Strategy & planning is everything. The needs of digital consumers are not the same today...",
-                        link: "/strategy-planning",
-                    },
-                ],
-            },
-            {
-                title: "Industries",
-                items: [
-                    {
-                        name: "E-commerce",
-                        description: "We create innovative solutions for e-commerce brands...",
-                        link: "/ecommerce",
-                    },
-                    {
-                        name: "Healthcare",
-                        description: "We build digital solutions tailored for healthcare businesses...",
-                        link: "/healthcare",
-                    },
-                ],
-            },
-        ],
-        projects: [
-            {
-                title: "Medical Device Website Redesign Rejuvenates & Transforms Online Brand Image",
-                description: "StemWave Medical Device Website Redesign & Development",
-                image: "/image-intro1.webp",
-                bgColor: "#10141c",
-            },
-            {
-                title: "Medical Device Website Redesign Rejuvenates & Transforms Online Brand Image",
-                description: "StemWave Medical Device Website Redesign & Development",
-                image: "/image-intro1.webp",
-                bgColor: "white",
-            },
-            {
-                title: "Medical Device Website Redesign Rejuvenates & Transforms Online Brand Image",
-                description: "StemWave Medical Device Website Redesign & Development",
-                image: "/image-intro1.webp",
-                bgColor: "#10141c",
-            },
-        ],
-    };
+export default async function Expertise() {
+    const projects = await getAllProjects()
+    const heroexpertise = await getHeroExperties()
+    const expertiesData = await getAllExperties()
+    // console.log('heroexpertise', heroexpertise)
+    // console.log('expertiesData', expertiesData)
+    
 
     return (
         <main className="bg-[#16171A] text-white pt-36">
             {/* Hero Section */}
-            <HeroSection data={pageData.hero} />
+            <HeroSection data={heroexpertise} />
 
             {/* Dynamic Sections (Our Expertise & Industries) */}
-            {pageData.sections.map((section, index) => (
-                <CommonSection key={index} title={section.title} items={section.items} />
+            {expertiesData?.map((data, index) => (
+                <CommonSection key={index} title={data?.title} name={data?.name} description={data?.description} slug={data?.slug}/>
             ))}
 
             {/* Featured Projects */}
@@ -86,13 +30,14 @@ export default function Expertise() {
                 <h1 className="md:text-end text-2xl md:text-6xl font-bold px-4 md:px-20">
                     <SplitText text="Featured Projects" />
                 </h1>
-                {pageData.projects.map((project, index) => (
+                {projects.slice(0, 3).map((project, index) => (
                     <FeaturedProject
                         key={index}
                         title={project.title}
-                        description={project.description}
-                        image={project.image}
-                        bgColor={project.bgColor}
+                        description={project.subtitle}
+                        image={project.thumbnailImage ? urlFor(project.thumbnailImage).url() : "/default.webp"} // Fallback Image
+                        bgColor={index % 2 === 0 ? "#10141c" : "white"}
+                        slug={project.slug.current}
                     />
                 ))}
                 <div className="flex justify-end">

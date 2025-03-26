@@ -6,38 +6,9 @@ import { motion, useAnimation } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import CursorFollower from '../common/CursorFollower';
 
-const navItems = [
-  { name: 'Work', href: '/work' },
-  {
-    name: 'Expertise',
-    href: '/expertise',
-    dropdown: [
-      { title: 'Web Development', link: '/expertise/web-dev', description: 'Building high-performance websites and applications.' },
-      { title: 'Mobile Apps', link: '/expertise/mobile-apps', description: 'Creating seamless mobile experiences for iOS and Android.' },
-      { title: 'UI/UX Design', link: '/expertise/ui-ux', description: 'Designing intuitive and engaging user experiences.' }
-    ]
-  },
-  {
-    name: 'About',
-    href: '/about-us',
-    dropdown: [
-      { title: 'Who We Are', link: '/about-us', description: 'Learn about our journey and team.' },
-      { title: 'Our Process', link: '/our-process', description: 'Discover how we bring ideas to life.' },
-      { title: 'Careers', link: '/careers', description: 'Join our team and grow with us.' }
-    ]
-  },
-  {
-    name: 'Resources',
-    href: '/resources',
-    dropdown: [
-      { title: 'Insights', link: '/resources/blog', description: 'Stay updated with industry trends and insights.' },
-      { title: 'E-Book', link: '/resources/case-studies', description: 'Download our in-depth guides and case studies.' },
-      { title: 'RFP Templates', link: '/resources/whitepapers', description: 'Access ready-to-use proposal templates.' }
-    ]
-  }
-];
 
-export default function Header({ navItems }) {
+
+export default function Header({ navItems, expertiesItem }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const [hovered, setHovered] = useState(null);
@@ -79,8 +50,23 @@ export default function Header({ navItems }) {
                 <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="absolute left-0 top-full mt-2 w-60 bg-white text-black shadow-lg rounded-lg p-2">
                   {item.dropdown.map((subItem) => (
                     <div key={subItem.title} className="px-4 py-2 hover:bg-gray-200 rounded">
-                      <Link href={subItem.link} className={`block font-medium relative pb-1 ${pathname === subItem.link ? 'border-b-2 border-green-500' : ''}`}>{subItem.title}</Link>
-                      <p className="text-sm text-gray-500">{subItem.description}</p>
+                      {pathname.includes('expertise') && item.name === 'Expertise' ? (
+                        expertiesItem.map((item) => (
+                          <div key={item.name} className="py-2">
+                            <Link href={item.slug} className="block text-gray-700 hover:text-black pb-1">
+                              {item.name}
+                            </Link>
+                          </div>
+                        ))
+                      ) : (
+                        <>
+                          <Link href={subItem.link} className={`block font-medium relative pb-1 ${pathname === subItem.link ? 'border-b-2 border-green-500' : ''}`}>
+                            {subItem.title}
+                          </Link>
+                          <p className="text-sm text-gray-500">{subItem.description}</p>
+                        </>
+                      )}
+
                     </div>
                   ))}
                 </motion.div>
