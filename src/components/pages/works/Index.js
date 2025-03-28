@@ -38,7 +38,7 @@ export default async function Works() {
       title="Learn"
       data={insightsData}
       linkTitle="View More Insights"
-      linkHref="/insights"
+      linkHref="/resources/insights"
     />
     </main>
   )

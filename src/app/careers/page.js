@@ -1,9 +1,9 @@
 import Careers from "@/components/pages/careers/Index";
 
-export default function WorkPage() {
+export default function CareerPage() {
     return (
         <>
         <Careers/>
         </>
     )
-}
+} 

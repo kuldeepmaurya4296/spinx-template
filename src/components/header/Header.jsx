@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import CursorFollower from '../common/CursorFollower';
+import ConsultationPopup from '../ConsultationPopup';
 
 
 
@@ -15,6 +16,8 @@ export default function Header({ navItems, expertiesItem }) {
   const controls = useAnimation();
   const sizeControls = useAnimation();
   const pathname = usePathname();
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   if (pathname.includes('studio')) { return null }
 
   useEffect(() => {
@@ -73,7 +76,7 @@ export default function Header({ navItems, expertiesItem }) {
               )}
             </div>
           ))}
-          <Link href="/contact" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Let's Talk</Link>
+          <button  className="block cursor-pointer bg-blue-600 text-white px-4 py-2 rounded  text-center hover:bg-blue-700" onClick={() => setIsPopupOpen(true)} >Let's Talk</button>
         </div>
         <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>{isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}</button>
       </motion.div>
@@ -97,9 +100,10 @@ export default function Header({ navItems, expertiesItem }) {
               )}
             </div>
           ))}
-          <Link href="/contact" className="block bg-blue-600 text-white px-4 py-2 rounded mt-4 text-center hover:bg-blue-700" onClick={() => setIsOpen(false)}>Let's Talk</Link>
+          <button  className="block cursor-pointer bg-blue-600 text-white px-4 py-2 rounded mt-4 text-center hover:bg-blue-700" onClick={() => setIsPopupOpen(true)} >Let's Talk</button>
         </div>
       )}
+      {isPopupOpen && <ConsultationPopup onClose={() => setIsPopupOpen(false)} />} 
     </motion.nav>
   );
 }

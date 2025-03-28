@@ -274,7 +274,9 @@ export async function getInsights() {
     const query = `*[_type == "insight"] {
       type,
       title,
-      categories
+      categories,
+      readTime,
+      slug
     }`;
 
     const data = await client.fetch(query);

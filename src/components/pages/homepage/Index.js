@@ -135,7 +135,7 @@ export default async function HomePage() {
                 title="Learn"
                 data={insightsData}
                 linkTitle="View More Insights"
-                linkHref="/insights"
+                linkHref="/resources/insights"
             />
 
             <div className="bg-[#181818] text-white px-4 md:px-20 py-16">

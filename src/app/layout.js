@@ -3,6 +3,7 @@ import "./globals.css";
 import Footer from "@/components/footer/Footer";
 import CursorFollower from "@/components/common/CursorFollower";
 import Navbar from "@/components/header/Index";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Toaster />
         <CursorFollower/>
         <Navbar />
         {children}

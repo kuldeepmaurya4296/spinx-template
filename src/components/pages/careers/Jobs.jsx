@@ -19,14 +19,14 @@ export default function Jobs({ title, data }) {
       {/* Insights Container */}
       <div className="mt-8 space-y-6">
         {data.map((item, index) => (
-          <Link href={item.link || "#"} key={index} aria-label={item.title}>
+          <Link href={`/careers/${item?._id}` || "#"} key={index} aria-label={item.title}>
             <motion.div
               className="relative p-4 md:p-6 border-b border-gray-700 cursor-pointer transition-all duration-300 flex flex-col md:flex-row md:items-center gap-4 md:gap-20  dark:hover:bg-gray-800 rounded-lg"
               onMouseEnter={() => setHoverIndex(index)}
               onMouseLeave={() => setHoverIndex(null)}
             >
               {/* Hover Background Effect */}
-              <div className="relative w-full">
+              <div className="relative w-full md:w-2/5  ">
                 <motion.div
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: hoverIndex === index ? 1 : 0 }}
@@ -34,12 +34,12 @@ export default function Jobs({ title, data }) {
                   className="absolute left-0 top-1/2 h-1/2 w-full bg-gray-800 dark:bg-gray-700 origin-left"
                 />
                 <h3 className="text-xl md:text-3xl font-semibold relative z-10">
-                  {item.title}
+                  {item?.title}
                 </h3>
               </div>
 
               {item.categories.length > 0 && (
-                <p className="text-gray-500 text-sm md:text-base mt-1 md:mt-0">
+                <p className="text-gray-500 text-sm md:text-base mt-1 md:mt-0 w-full md:w-3/5">
                   {item.categories.join(", ")}
                 </p>
               )}

@@ -1,4 +1,5 @@
 import ceomessage from "./ceomessage";
+import createConsult from "./createConsult";
 import expertiseData from "./experties/expertiseData";
 import expertiseHero from "./experties/expertiseHero";
 import awards from "./homepage/awards";
@@ -18,9 +19,13 @@ import stepsNavigation from "./homepage/stepsNavigation";
 import testimonial from "./homepage/testimonial";
 import whatweare from "./homepage/whatweare";
 import individualWork from "./individualWork";
+import jobPost from "./job";
+import jobApplication from "./jobApplication";
 import navbarSchema from "./navbarSchema";
 import postType from "./postType";
+import subscriber from "./subscriber";
+import userSchema from "./userSchema";
 
 export const schema = {
-  types: [postType, navbarSchema, heroSection, awards, whatweare, highlightSection, brands, logos, experties, awardsRecognition, awardSection, processSteps, stepsNavigation, contact, testimonial, insights, devine, individualWork, expertiseHero, expertiseData, ceomessage],
+  types: [postType, navbarSchema, heroSection, awards, whatweare, highlightSection, brands, logos, experties, awardsRecognition, awardSection, processSteps, stepsNavigation, contact, testimonial, insights, devine, individualWork, expertiseHero, expertiseData, ceomessage, jobPost, jobApplication, userSchema, subscriber, createConsult],
 }
