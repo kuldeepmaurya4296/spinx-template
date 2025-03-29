@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Clock, Slice } from "lucide-react";
 
 export default function LearnSection({ title, data, linkTitle, linkHref }) {
-  console.log("LearnSection Data:", data); // ✅ Debugging Output
+  // console.log("LearnSection Data:", data); // ✅ Debugging Output
   const [hoverIndex, setHoverIndex] = useState(null);
 
   if (!data || data.length === 0) return null; // Don't render if no data is provided

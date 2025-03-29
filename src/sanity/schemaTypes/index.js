@@ -2,6 +2,7 @@ import ceomessage from "./ceomessage";
 import createConsult from "./createConsult";
 import expertiseData from "./experties/expertiseData";
 import expertiseHero from "./experties/expertiseHero";
+import footer from "./footer";
 import awards from "./homepage/awards";
 import awardSection from "./homepage/awardSection";
 import awardsRecognition from "./homepage/awardsRecognition";
@@ -27,5 +28,5 @@ import subscriber from "./subscriber";
 import userSchema from "./userSchema";
 
 export const schema = {
-  types: [postType, navbarSchema, heroSection, awards, whatweare, highlightSection, brands, logos, experties, awardsRecognition, awardSection, processSteps, stepsNavigation, contact, testimonial, insights, devine, individualWork, expertiseHero, expertiseData, ceomessage, jobPost, jobApplication, userSchema, subscriber, createConsult],
+  types: [postType, navbarSchema, heroSection, awards, whatweare, highlightSection, brands, logos, experties, awardsRecognition, awardSection, processSteps, stepsNavigation, contact, testimonial, insights, devine, individualWork, expertiseHero, expertiseData, ceomessage, jobPost, jobApplication, userSchema, subscriber, createConsult, footer],
 }

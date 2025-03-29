@@ -14,7 +14,7 @@ export default function StepNavigation({ steps }) {
       viewport={{ once: true }}
       className="flex flex-col md:flex-row h-screen overflow-hidden px-4 md:px-20 py-5"
     >
-      {steps.map((step) => {
+      {steps.map((step, index) => {
         const isActive = activeContainer === step.id;
 
         return (
@@ -45,7 +45,7 @@ export default function StepNavigation({ steps }) {
                   {/* Rotated title for open container */}
                   <div className="w-full md:w-24 h-16 md:h-full flex items-center justify-center text-black bg-white">
                     <div className="transform md:rotate-270 flex gap-4 items-center whitespace-nowrap">
-                      <span className="text-lg md:text-2xl font-bold">{step.number}</span>
+                      <span className="text-lg md:text-2xl font-bold">0{index+1}</span>
                       <span className="text-lg md:text-2xl font-bold">{step.title}</span>
                     </div>
                   </div>
@@ -70,7 +70,7 @@ export default function StepNavigation({ steps }) {
             >
               <div className="flex items-center justify-center h-full">
                 <div className="transform md:rotate-270 flex gap-4 items-center whitespace-nowrap">
-                  <span className="text-lg md:text-2xl font-bold">{step.number}</span>
+                  <span className="text-lg md:text-2xl font-bold">0{index+1}</span>
                   <span className="text-lg md:text-2xl font-bold">{step.title}</span>
                 </div>
               </div>
