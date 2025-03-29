@@ -26,7 +26,7 @@ export default function HighlightSection({ title, description, imageUrl, positio
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
 
-      className="relative "
+      className="relative overflow-hidden "
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

@@ -4,7 +4,6 @@ import { ChevronDown, ChevronUp, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-import CursorFollower from '../common/CursorFollower';
 import ConsultationPopup from '../ConsultationPopup';
 
 
