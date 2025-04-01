@@ -41,7 +41,7 @@ const ConsultationPopup = ({ onClose }) => {
   
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50">
+    <div className="fixed inset-0 bg-[#16171A] text-white bg-opacity-30 flex justify-center items-center z-50">
       <div className="bg-gray-900 text-white rounded-lg max-w-5xl w-full flex relative p-4">
         <div className="w-1/3 hidden md:block">
           <img src="/default.webp" alt="Dummy" className="w-full h-full object-cover rounded-l-lg" />

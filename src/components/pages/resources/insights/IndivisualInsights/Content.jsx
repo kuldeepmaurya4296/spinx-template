@@ -40,7 +40,7 @@ export default function InsightContent() {
     // console.log("insight:", insight);
 
     return (
-        <div className="max-w-full mx-auto p-4 md:px-20 space-y-8 pt-48">
+        <div className="max-w-full mx-auto p-4 md:px-20 space-y-8 pt-48 bg-white">
             <div key={insight?.slug} className="rounded-lg ">
                 {/* Title & Meta */}
 

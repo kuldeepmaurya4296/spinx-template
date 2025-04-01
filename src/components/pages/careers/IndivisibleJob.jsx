@@ -33,7 +33,7 @@ const JobDetails = () => {
   const renderList = (title, items) => (
     items?.length > 0 && (
       <section className="mb-6">
-        <h2 className="text-2xl font-semibold mb-3">{title}</h2>
+        <h2 className="text-2xl font-semibold mb-3 text-black">{title}</h2>
         <ul className="list-disc pl-6 text-gray-700 text-lg space-y-1">
           {items?.map((item, index) => <li key={index}>{item}</li>)}
         </ul>
@@ -79,7 +79,7 @@ const JobDetails = () => {
       {/* Categories */}
       {job?.categories?.length > 0 && (
         <div className="mb-6">
-          <h3 className="text-lg font-semibold mb-2">Skills:</h3>
+          <h3 className="text-lg font-bold mb-2 text-black">Skills:</h3>
           <div className="flex flex-wrap gap-2">
             {job?.categories?.map((category, index) => (
               <span key={index} className="bg-blue-100 text-blue-700 text-sm px-3 py-1 rounded-full">
@@ -104,7 +104,7 @@ const JobDetails = () => {
 
       {/* Overview */}
       <section className="mb-6">
-        <h2 className="text-2xl font-semibold mb-3">Job Overview</h2>
+        <h2 className="text-2xl font-semibold mb-3 text-black">Job Overview</h2>
         <p className="text-gray-700 text-lg">{job?.overview || "No overview available"}</p>
       </section>
 

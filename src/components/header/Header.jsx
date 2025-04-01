@@ -55,7 +55,7 @@ export default function Header({ navItems, expertiesItem }) {
                       {item.name === 'Expertise' ? (
                         expertiesItem.map((item) => (
                           <div key={item.name} className="py-2">
-                            <Link href={item.slug} className="block text-gray-700 hover:text-black pb-1">
+                            <Link href={`/expertise/${item.slug}`} className="block text-gray-700 hover:text-black pb-1">
                               {item.name}
                             </Link>
                           </div>

@@ -82,7 +82,7 @@ const OurProcessSection = ({ title, subtitle, description, processSteps }) => {
       {/* Video Popup Modal */}
       {isModalOpen && processSteps?.videoUrl && (
         <motion.div
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          className="fixed inset-0 flex items-center justify-center bg-[#16171A] text-white bg-opacity-50 z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

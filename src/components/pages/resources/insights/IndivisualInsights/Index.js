@@ -9,7 +9,7 @@ import { Link } from "lucide-react";
 export default async function IndivisualInsights() {
      const projects = await getAllProjects()
     return (
-        <div>
+        <div className="bg-[#16171A] text-white">
            <InsightContent />
            <RelatedInsights/>
            <div className="py-4">
