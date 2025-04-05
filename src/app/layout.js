@@ -5,6 +5,8 @@ import CursorFollower from "@/components/common/CursorFollower";
 import Navbar from "@/components/header/Index";
 import { Toaster } from "sonner";
 import ScrollToTop from "@/components/common/ScrollToTop";
+// import Script from "next/script";
+// import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,16 +18,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  themeColor: "#040117", // Matches your dark background
-  colorScheme: "dark", // Ensures dark mode compatibility
-};
-
 export const metadata = {
   title: "Spinx - The Ultimate Web Experience",
-  description: "Spinx is a cutting-edge web application offering seamless performance, rich UI, and intuitive design for an enhanced digital experience.",
+  description:
+    "Spinx is a cutting-edge web application offering seamless performance, rich UI, and intuitive design for an enhanced digital experience.",
   keywords: "Spinx, Next.js App, Web Experience, UI/UX, Modern Web Apps",
   author: "Flourishers Edge",
   robots: "index, follow",
@@ -83,13 +79,29 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* <head>
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-      </head> */}
-
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        {/* Google Analytics */}
+        {/* <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-11YBXNKLZ7"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-11YBXNKLZ7', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        /> */}
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* <GoogleAnalytics/> */}
         <ScrollToTop />
         <Toaster />
         <CursorFollower />
